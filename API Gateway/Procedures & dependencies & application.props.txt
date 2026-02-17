@@ -1,0 +1,32 @@
+Depedencies:
+***********
+DiscoveryClient
+API gateway
+
+
+Application.properties:
+***********************
+
+#server port number
+server.port=9191
+
+#To connect with eureka client
+eureka.client.service-url.default-zone=http://localhost:8761/eureka/
+
+#Acuators properties
+management.endpoints.web.exposure.include=*
+
+#api gateway properties
+spring.cloud.gateway.server.webflux.routes[0].id=PlayerMs-ConsumerMs
+spring.cloud.gateway.server.webflux.routes[0].uri=http://localhost:7070/
+spring.cloud.gateway.server.webflux.routes[0].predicates[0]=Path=/iplplayer/**
+
+#load balancing
+spring.cloud.gateway.server.webflux.routes[1].id=TeamMs-ProviderMs
+spring.cloud.gateway.server.webflux.routes[1].uri=http://localhost:4040/
+spring.cloud.gateway.server.webflux.routes[1].predicates[0]=Path=/iplteam/**
+
+
+IN MAIN CLASS (annotation):
+**************************
+@EnableDiscoveryClient

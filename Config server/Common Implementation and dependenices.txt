@@ -1,0 +1,15 @@
+Dependencies :
+***************
+config server
+mysql driver (not mandatory)
+
+In Main class:
+***************
+@EnableConfigServer
+
+Application.properties:
+**************************
+server.port= 8888 (FIXED PORT NUMBER)
+
+#Link configserver with external config file
+spring.cloud.configserver.git.uri = paste the url of github file

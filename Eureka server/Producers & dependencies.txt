@@ -1,0 +1,16 @@
+
+DEPEDENCICES :
+*************
+eureka server
+
+Application.properties:
+********************
+server.port = 8761(fixed)
+
+
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+
+IN MAIN CLASS (annotation):
+**************************
+@EnableEurekaServer
